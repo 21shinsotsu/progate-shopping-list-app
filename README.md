@@ -4,6 +4,7 @@
 `feature/local`ブランチのものをdockerコンテナ化した。
 
 ## アプリの起動方法
+`docker-compose.yml`と`app/mysqlConnection.js`にmysqlのユーザー名、パスワードを記載。
 ```
 docker compose build
 docker compose up -d
