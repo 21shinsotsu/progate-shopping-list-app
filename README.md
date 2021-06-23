@@ -9,6 +9,7 @@ docker compose build
 docker compose up -d
 ```
 `localhost:3000` にアクセス
+localhost:3000/indexにアクセスした際、index.ejsでエラーが出る場合、ページをリロードするか、時間を置いてからアクセスするとなぜか動くようになります（謎）
 
 ## アプリの終了
 ```
