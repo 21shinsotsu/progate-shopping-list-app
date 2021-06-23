@@ -1,70 +1,18 @@
 # 買い物リストアプリ
 買い物リストの追加、編集、削除ができるwebアプリ。   
 データベースにMySQLを使用。
+`feature/local`ブランチのものをdockerコンテナ化した。
 
-### アプリの起動準備
-#### 1. MySQLのインストール
-`mysql --version`　で確認。`command not found : mysql`なら以下を実施。  
-※ M1 Macでは以下のバージョンのmysqlがインストールできなかった（ただの報告）
+## アプリの起動方法
 ```
-$ brew install mysql@5.7
-$ mysql --version
-```
-
-#### 2. パスの設定
-```
-$ echo 'export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"' >> ~/.zshrc
-$ source ~/.zshrc
-$ mysql --version
-```
-
-#### 3. パスワードの設定
-```
-$ brew services start mysql@5.7
-$ mysql_secure_installation
-   # VALIDATE PASSWORD PLUGIN は　Enterで抜ける
-   # New password を入力
-   # その他はEnterで抜ける
-```
-
-#### 4. MySQLにログイン
-```
-$ brew services start mysql@5.7
-$ mysql --user=root --password
-```
-
-#### 5. データベースとテーブルの作成
-```
-# mysql内で
-CREATE DATABASE list_app;
-SHOW databases;
-USE list_app;
-SHOW tables;
-CREATE TABLE items (id INT AUTO_INCREMENT, name TEXT, PRIMARY KEY (id));
-SHOW tables;
-```
-
-### アプリの起動
-mysqlとの接続情報を`app.js`の以下の部分に記載
-```
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',       # mysqlのユーザー名
-  password: 'root',   # mysqlのパスワード
-  database: 'list_app'
-});
-```
-ターミナルで
-```
-$ npm install
-$ node app.js
+docker compose build
+docker compose up -d
 ```
 `localhost:3000` にアクセス
 
-### MySQLの終了
+## アプリの終了
 ```
-mysql> exit;
-$ brew services stop mysql@5.7 
+docker compose down
 ```
 
 ## 完成品
