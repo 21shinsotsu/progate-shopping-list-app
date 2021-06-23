@@ -4,13 +4,14 @@
 `feature/local`ブランチのものをdockerコンテナ化した。
 
 ## アプリの起動方法
-`docker-compose.yml`と`app/mysqlConnection.js`にmysqlのユーザー名、パスワードを記載。
-```
+1. `docker-compose.yml`と`app/mysqlConnection.js`にmysqlのユーザー名、パスワードを記載。
+2. 本リポジトリ配下で以下を実行
+ ```
 docker compose build
 docker compose up -d
 ```
-`localhost:3000` にアクセス   
-※ localhost:3000/indexにアクセスした際、index.ejsでエラーが出る場合、ページをリロードするか、時間を置いてからアクセスするとなぜか動くようになります（謎）
+3. `localhost:3000` にアクセス   
+  ※localhost:3000/indexにアクセスした際、index.ejsでエラーが出る場合、ページをリロードするか、時間を置いてからアクセスするとなぜか動くようになります（謎）
 
 ## アプリの終了
 ```
