@@ -8,12 +8,15 @@
   },
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "ejs": "^2.6.1",
     "express": "^4.17.1",
+    "log": "^6.0.0",
     "mysql": "^2.16.0",
     "require": "^2.4.20"
   },
   "devDependencies": {
+    "express-session": "^1.17.2",
     "nodemon": "^2.0.7"
   }
 }

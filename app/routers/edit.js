@@ -2,12 +2,12 @@ const connection = require('../mysqlConnection');
 
 const router = (req, res) => {
   connection.query(
-    'INSERT INTO items (name) VALUES (?)',
-    [req.body.itemName],
+    'SELECT * FROM items WHERE itemId = ?',
+    [req.params.itemId],
     (error, results) => {
-      res.redirect('/index');
+      res.render('edit', {item: results[0]});
     }
-  );
+  )
 };
 
 module.exports = router;

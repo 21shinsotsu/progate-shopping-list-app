@@ -1,11 +1,12 @@
 const connection = require('../mysqlConnection');
 
 const router = (req, res) => {
+  const userId = req.session.userId;
   connection.query(
-    'DELETE FROM items WHERE id = ?',
-    [req.params.id],
+    'DELETE FROM items WHERE itemId = ?',
+    [req.params.itemId],
     (error, results) => {
-      res.redirect('/index');
+      res.redirect( '/index/'+userId );
     }
   );
 };
